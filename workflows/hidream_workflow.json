@@ -1,0 +1,59 @@
+{
+  "10": {
+    "inputs": {
+      "ckpt_name": "hidream_o1_image_dev_fp8_scaled.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple"
+  },
+  "6": {
+    "inputs": {
+      "text": "A serene Japanese garden with a red arched bridge over a koi pond, cherry blossoms falling gently, morning mist, traditional stone lanterns, photorealistic",
+      "clip": ["10", 1]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "7": {
+    "inputs": {
+      "text": "",
+      "clip": ["10", 1]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "5": {
+    "inputs": {
+      "seed": 42,
+      "steps": 28,
+      "cfg": 4.5,
+      "sampler_name": "euler",
+      "scheduler": "sgm_uniform",
+      "denoise": 1.0,
+      "model": ["10", 0],
+      "positive": ["6", 0],
+      "negative": ["7", 0],
+      "latent_image": ["13", 0]
+    },
+    "class_type": "KSampler"
+  },
+  "13": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage"
+  },
+  "8": {
+    "inputs": {
+      "samples": ["5", 0],
+      "vae": ["10", 2]
+    },
+    "class_type": "VAEDecode"
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "ComfyUI_hidream",
+      "images": ["8", 0]
+    },
+    "class_type": "SaveImage"
+  }
+}

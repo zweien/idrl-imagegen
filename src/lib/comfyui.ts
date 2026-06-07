@@ -1,4 +1,4 @@
-const COMFYUI_URL = process.env.COMFYUI_URL || "http://192.168.1.39:8189";
+const COMFYUI_URL = process.env.COMFYUI_URL || "http://localhost:8188";
 
 export interface ComfyUIHistoryOutput {
   images?: Array<{

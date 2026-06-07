@@ -1,15 +1,15 @@
 {
   "id": "9ae6082b-c7f4-433c-9971-7a8f65a3ea65",
   "revision": 0,
-  "last_node_id": 103,
-  "last_link_id": 134,
+  "last_node_id": 99,
+  "last_link_id": 124,
   "nodes": [
     {
       "id": 73,
       "type": "SaveImage",
       "pos": [
-        310,
-        240
+        309.99983180839604,
+        239.99998948802474
       ],
       "size": [
         520,
@@ -18,7 +18,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 2,
+      "order": 3,
       "mode": 0,
       "inputs": [
         {
@@ -46,7 +46,7 @@
         }
       },
       "widgets_values": [
-        "Ernie-Image-Turbo"
+        "Ernie-Image"
       ]
     },
     {
@@ -104,11 +104,11 @@
       "properties": {
         "proxyWidgets": [
           [
-            "94",
+            "78",
             "value"
           ],
           [
-            "96",
+            "76",
             "value"
           ],
           [
@@ -118,6 +118,14 @@
           [
             "71",
             "height"
+          ],
+          [
+            "70",
+            "steps"
+          ],
+          [
+            "70",
+            "cfg"
           ],
           [
             "70",
@@ -132,7 +140,7 @@
             "clip_name"
           ],
           [
-            "98",
+            "91",
             "clip_name"
           ],
           [
@@ -164,8 +172,8 @@
       "id": 89,
       "type": "MarkdownNote",
       "pos": [
-        -688.8966350249582,
-        171.3752656066161
+        -670.000084095802,
+        239.99998948802474
       ],
       "size": [
         510,
@@ -184,7 +192,36 @@
         }
       },
       "widgets_values": [
-        "Guide: [Subgraph](https://docs.comfy.org/interface/features/subgraph)\n\n## Model Links (for Local Users)\n\n**diffusion_models**\n\n- [ernie-image-turbo.safetensors](https://huggingface.co/Comfy-Org/ERNIE-Image/blob/main/diffusion_models/ernie-image-turbo.safetensors)\n\n**text_encoders**\n\n- [ministral-3-3b.safetensors](https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/text_encoders/ministral-3-3b.safetensors)\n- [ernie-image-prompt-enhancer.safetensors](https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/text_encoders/ernie-image-prompt-enhancer.safetensors)\n\n**vae**\n\n- [flux2-vae.safetensors](https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/vae/flux2-vae.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 diffusion_models/\n│   │   └── ernie-image.safetensors\n│   ├── 📂 text_encoders/\n│   │   ├── ministral-3-3b.safetensors\n│   │   └── ernie-image-prompt-enhancer.safetensors\n│   └── 📂 vae/\n│       └── flux2-vae.safetensors\n```\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud updates follow stable releases, so some nightly-supported models may not be available yet.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
+        "Guide: [Subgraph](https://docs.comfy.org/interface/features/subgraph)\n\n## Model Links (for Local Users)\n\n**diffusion_models**\n\n- [ernie-image.safetensors](https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/diffusion_models/ernie-image.safetensors)\n\n**text_encoders**\n\n- [ministral-3-3b.safetensors](https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/text_encoders/ministral-3-3b.safetensors)\n- [ernie-image-prompt-enhancer.safetensors](https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/text_encoders/ernie-image-prompt-enhancer.safetensors)\n\n**vae**\n\n- [flux2-vae.safetensors](https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/vae/flux2-vae.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 diffusion_models/\n│   │   └── ernie-image.safetensors\n│   ├── 📂 text_encoders/\n│   │   ├── ministral-3-3b.safetensors\n│   │   └── ernie-image-prompt-enhancer.safetensors\n│   └── 📂 vae/\n│       └── flux2-vae.safetensors\n```\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud updates follow stable releases, so some nightly-supported models may not be available yet.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 90,
+      "type": "MarkdownNote",
+      "pos": [
+        -120.00008409580198,
+        869.999915904198
+      ],
+      "size": [
+        400,
+        130
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Try 50 steps, if you want to compare with the original setting"
       ],
       "color": "#222",
       "bgcolor": "#000"
@@ -207,21 +244,21 @@
         "id": "03921aea-a70e-44b4-bc77-f6bda10f2120",
         "version": 1,
         "state": {
-          "lastGroupId": 7,
-          "lastNodeId": 103,
-          "lastLinkId": 134,
+          "lastGroupId": 6,
+          "lastNodeId": 99,
+          "lastLinkId": 124,
           "lastRerouteId": 0
         },
         "revision": 0,
         "config": {},
-        "name": "Text to Image (Ernie Image Turbo)",
+        "name": "Text to Image (Ernie Image)",
         "inputNode": {
           "id": -10,
           "bounding": [
             -1350,
             370,
-            171.50390625,
-            228
+            163.50390625,
+            260
           ]
         },
         "outputNode": {
@@ -229,8 +266,8 @@
           "bounding": [
             1110,
             260,
-            128,
-            68
+            120,
+            60
           ]
         },
         "inputs": [
@@ -239,12 +276,12 @@
             "name": "value",
             "type": "STRING",
             "linkIds": [
-              128
+              102
             ],
             "label": "prompt",
             "pos": [
-              -1202.49609375,
-              394
+              -1206.49609375,
+              390
             ]
           },
           {
@@ -252,12 +289,12 @@
             "name": "value_1",
             "type": "BOOLEAN",
             "linkIds": [
-              127
+              103
             ],
             "label": "prompt_enhancement",
             "pos": [
-              -1202.49609375,
-              414
+              -1206.49609375,
+              410
             ]
           },
           {
@@ -266,11 +303,11 @@
             "type": "INT",
             "linkIds": [
               104,
-              129
+              113
             ],
             "pos": [
-              -1202.49609375,
-              434
+              -1206.49609375,
+              430
             ]
           },
           {
@@ -279,11 +316,35 @@
             "type": "INT",
             "linkIds": [
               105,
-              130
+              114
             ],
             "pos": [
-              -1202.49609375,
-              454
+              -1206.49609375,
+              450
+            ]
+          },
+          {
+            "id": "1e85f808-66a1-41df-be52-334142b35419",
+            "name": "steps",
+            "type": "INT",
+            "linkIds": [
+              106
+            ],
+            "pos": [
+              -1206.49609375,
+              470
+            ]
+          },
+          {
+            "id": "2806addf-a252-4aa3-a5b7-397ab36dccec",
+            "name": "cfg",
+            "type": "FLOAT",
+            "linkIds": [
+              107
+            ],
+            "pos": [
+              -1206.49609375,
+              490
             ]
           },
           {
@@ -294,8 +355,8 @@
               108
             ],
             "pos": [
-              -1202.49609375,
-              474
+              -1206.49609375,
+              510
             ]
           },
           {
@@ -306,8 +367,8 @@
               109
             ],
             "pos": [
-              -1202.49609375,
-              494
+              -1206.49609375,
+              530
             ]
           },
           {
@@ -318,33 +379,33 @@
               110
             ],
             "pos": [
-              -1202.49609375,
-              514
+              -1206.49609375,
+              550
             ]
           },
           {
-            "id": "b77ffefd-20d8-4493-b4fe-b090a5f9101d",
+            "id": "1d73a545-6d01-462f-bc61-966d4b918ff2",
             "name": "clip_name_1",
             "type": "COMBO",
             "linkIds": [
-              132
+              120
             ],
             "label": "prompt_enhancer",
             "pos": [
-              -1202.49609375,
-              534
+              -1206.49609375,
+              570
             ]
           },
           {
-            "id": "01990356-cd16-45c7-8980-44b0ea2e3a8e",
+            "id": "8c61dc8c-e260-4b36-b73e-d36f90a0bbe3",
             "name": "vae_name",
             "type": "COMBO",
             "linkIds": [
-              133
+              121
             ],
             "pos": [
-              -1202.49609375,
-              554
+              -1206.49609375,
+              590
             ]
           }
         ],
@@ -358,8 +419,8 @@
             ],
             "localized_name": "IMAGE",
             "pos": [
-              1134,
-              284
+              1130,
+              280
             ]
           }
         ],
@@ -369,8 +430,8 @@
             "id": 71,
             "type": "EmptyFlux2LatentImage",
             "pos": [
-              -470,
-              1050
+              -459.9999796181471,
+              1040.0000439914468
             ],
             "size": [
               270,
@@ -427,8 +488,8 @@
               }
             },
             "widgets_values": [
-              1264,
-              848,
+              2048,
+              1024,
               1
             ]
           },
@@ -436,12 +497,12 @@
             "id": 66,
             "type": "UNETLoader",
             "pos": [
-              -470,
-              320
+              -469.99999864668473,
+              319.9999014517264
             ],
             "size": [
               270,
-              110.40625
+              110
             ],
             "flags": {},
             "order": 3,
@@ -480,8 +541,8 @@
               "secondTabWidth": 65,
               "models": [
                 {
-                  "name": "ernie-image-turbo.safetensors",
-                  "url": "https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/diffusion_models/ernie-image-turbo.safetensors",
+                  "name": "ernie-image.safetensors",
+                  "url": "https://huggingface.co/Comfy-Org/ERNIE-Image/resolve/main/diffusion_models/ernie-image.safetensors",
                   "directory": "diffusion_models"
                 }
               ],
@@ -492,7 +553,7 @@
               }
             },
             "widgets_values": [
-              "ernie-image-turbo.safetensors",
+              "ernie-image.safetensors",
               "default"
             ]
           },
@@ -500,8 +561,8 @@
             "id": 65,
             "type": "VAEDecode",
             "pos": [
-              710,
-              280
+              709.9999280813329,
+              279.99996172812985
             ],
             "size": [
               230,
@@ -558,8 +619,8 @@
             "id": 70,
             "type": "KSampler",
             "pos": [
-              350,
-              280
+              350.0000613973036,
+              279.99996172812985
             ],
             "size": [
               320,
@@ -585,7 +646,7 @@
                 "localized_name": "negative",
                 "name": "negative",
                 "type": "CONDITIONING",
-                "link": 113
+                "link": 83
               },
               {
                 "localized_name": "latent_image",
@@ -601,6 +662,24 @@
                   "name": "seed"
                 },
                 "link": 108
+              },
+              {
+                "localized_name": "steps",
+                "name": "steps",
+                "type": "INT",
+                "widget": {
+                  "name": "steps"
+                },
+                "link": 106
+              },
+              {
+                "localized_name": "cfg",
+                "name": "cfg",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "cfg"
+                },
+                "link": 107
               }
             ],
             "outputs": [
@@ -632,10 +711,10 @@
               }
             },
             "widgets_values": [
-              112825567132910,
+              364160792665313,
               "randomize",
-              8,
-              1,
+              20,
+              4,
               "euler",
               "simple",
               1
@@ -645,8 +724,8 @@
             "id": 67,
             "type": "CLIPTextEncode",
             "pos": [
-              -140,
-              320
+              -139.99998446243728,
+              319.9999014517264
             ],
             "size": [
               410,
@@ -669,7 +748,7 @@
                 "widget": {
                   "name": "text"
                 },
-                "link": 131
+                "link": 100
               }
             ],
             "outputs": [
@@ -678,8 +757,7 @@
                 "name": "CONDITIONING",
                 "type": "CONDITIONING",
                 "links": [
-                  76,
-                  112
+                  76
                 ]
               }
             ],
@@ -707,11 +785,402 @@
             "bgcolor": "#353"
           },
           {
+            "id": 72,
+            "type": "CLIPTextEncode",
+            "pos": [
+              -129.99996543389977,
+              769.9999393925939
+            ],
+            "size": [
+              390,
+              140
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "link": 82
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "CONDITIONING",
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "links": [
+                  83
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CLIPTextEncode",
+              "cnr_id": "comfy-core",
+              "ver": "0.3.73",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65,
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              }
+            },
+            "widgets_values": [
+              ""
+            ],
+            "color": "#223",
+            "bgcolor": "#335"
+          },
+          {
+            "id": 83,
+            "type": "StringReplace",
+            "pos": [
+              -499.9999875370205,
+              -640.0000158201264
+            ],
+            "size": [
+              430,
+              450
+            ],
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "replace",
+                "name": "replace",
+                "type": "STRING",
+                "widget": {
+                  "name": "replace"
+                },
+                "link": 92
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  115
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "StringReplace",
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65,
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              }
+            },
+            "widgets_values": [
+              "<s>[SYSTEM_PROMPT]你是一个专业的文生图 Prompt 增强助手。你将收到用户的简短图片描述及目标生成分辨率，请据此扩写为一段内容丰富、细节充分的视觉描述，以帮助文生图模型生成高质量的图片。仅输出增强后的描述，不要包含任何解释或前缀。[/SYSTEM_PROMPT][INST]{\"prompt\": \"{prompt}\", \"width\": {width}, \"height\": {height}}[/INST]",
+              "{prompt}",
+              ""
+            ]
+          },
+          {
+            "id": 78,
+            "type": "PrimitiveStringMultiline",
+            "pos": [
+              -949.9999487582014,
+              -650.0000348486639
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "value",
+                "name": "value",
+                "type": "STRING",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 102
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  87,
+                  92
+                ]
+              }
+            ],
+            "title": "String (Multiline - Prompt)",
+            "properties": {
+              "Node name for S&R": "PrimitiveStringMultiline",
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65,
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              }
+            },
+            "widgets_values": [
+              "一张视觉笔记风格的宽屏演示幻灯片设计图。背景为带有淡灰色细线的网格纸，整体呈现出轻松、创意且具启发性的彩色马克笔和水彩手绘涂鸦风格。画面顶部中央使用蓝色马克笔质感的中文手写体书写着主标题：'2024产品创新战略'，标题下方垫有黄色水彩笔触的波浪形粗下划线。画面左侧区域展示了一个手绘思维导图，中心是一个带有黄色高亮底色的红色手绘圆圈，内部写着'核心目标'。从中心向外延伸出三条绿色的手绘弧线分支：左上角分支连接着写有'用户体验'的文本框，旁边画有一个黄色的微笑气泡图标，并继续分出'简化流程'和'界面优化'两个子节点；右侧分支写着'技术升级'，配有手绘的蓝色小齿轮图标，分出'AI赋能'和'云端同步'；左下方分支写着'市场拓展'，带有手绘的小火箭图标，分出'海外增长'和'下沉市场'。画面右侧区域展示业务流程图，用四个橙色手绘方框从上到下呈阶梯状排列，方框之间由带有黑色箭头的虚线连接。四个方框内分别写有：'1. 需求洞察'、'2. 敏捷开发'、'3. 灰度测试'、'4. 全量发布'。在'需求洞察'旁画有一个发光的灯泡图标，在'全量发布'旁画着一面飘扬的红旗。画面右下角有一块仿便利贴的淡黄色手绘方块区域，用于核心数据说明，顶部写有'核心增长指标'，下方画有一个绿色的上升趋势折线图，折线最高点用红色粗笔标注着'+45%'，旁边配有手写的关键数据：'月活增长预期'以及'留存率目标: 60%'。画面四周空白处随机点缀着几颗随性的黄色小星星涂鸦、蓝色的墨水飞溅点和红色的感叹号，排版清晰，图文结构紧凑。\u0000"
+            ]
+          },
+          {
+            "id": 74,
+            "type": "TextGenerate",
+            "pos": [
+              529.9999947393183,
+              -650.0000348486639
+            ],
+            "size": [
+              400,
+              412
+            ],
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "link": 112
+              },
+              {
+                "localized_name": "image",
+                "name": "image",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": null
+              },
+              {
+                "localized_name": "video",
+                "name": "video",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": null
+              },
+              {
+                "localized_name": "audio",
+                "name": "audio",
+                "shape": 7,
+                "type": "AUDIO",
+                "link": null
+              },
+              {
+                "localized_name": "prompt",
+                "name": "prompt",
+                "type": "STRING",
+                "widget": {
+                  "name": "prompt"
+                },
+                "link": 119
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "generated_text",
+                "name": "generated_text",
+                "type": "STRING",
+                "links": [
+                  89
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "TextGenerate",
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65,
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              }
+            },
+            "widgets_values": [
+              "",
+              2048,
+              "on",
+              0.6,
+              64,
+              0.8,
+              0.05,
+              1.05,
+              0,
+              0,
+              false,
+              true
+            ]
+          },
+          {
+            "id": 76,
+            "type": "PrimitiveBoolean",
+            "pos": [
+              -499.9999875370205,
+              59.99995227196496
+            ],
+            "size": [
+              270,
+              100
+            ],
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "value",
+                "name": "value",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 103
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "BOOLEAN",
+                "name": "BOOLEAN",
+                "type": "BOOLEAN",
+                "links": [
+                  88
+                ]
+              }
+            ],
+            "title": "Enable prompt enhancement?",
+            "properties": {
+              "Node name for S&R": "PrimitiveBoolean",
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65,
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              }
+            },
+            "widgets_values": [
+              true
+            ]
+          },
+          {
+            "id": 75,
+            "type": "ComfySwitchNode",
+            "pos": [
+              529.9999947393183,
+              20.00001254836866
+            ],
+            "size": [
+              270,
+              130
+            ],
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "on_false",
+                "name": "on_false",
+                "type": "STRING",
+                "link": 87
+              },
+              {
+                "localized_name": "on_true",
+                "name": "on_true",
+                "type": "STRING",
+                "link": 89
+              },
+              {
+                "localized_name": "switch",
+                "name": "switch",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "switch"
+                },
+                "link": 88
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "output",
+                "name": "output",
+                "type": "STRING",
+                "links": [
+                  100,
+                  124
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ComfySwitchNode",
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65,
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              }
+            },
+            "widgets_values": [
+              false
+            ]
+          },
+          {
             "id": 62,
             "type": "CLIPLoader",
             "pos": [
-              -470,
-              530
+              -459.9999796181471,
+              520.00000924137
             ],
             "size": [
               270,
@@ -737,7 +1206,8 @@
                 "name": "CLIP",
                 "type": "CLIP",
                 "links": [
-                  79
+                  79,
+                  82
                 ]
               }
             ],
@@ -775,8 +1245,8 @@
             "id": 63,
             "type": "VAELoader",
             "pos": [
-              -470,
-              780
+              -459.9999796181471,
+              769.9999393925939
             ],
             "size": [
               270,
@@ -793,7 +1263,7 @@
                 "widget": {
                   "name": "vae_name"
                 },
-                "link": 133
+                "link": 121
               }
             ],
             "outputs": [
@@ -836,397 +1306,10 @@
           },
           {
             "id": 91,
-            "type": "ConditioningZeroOut",
-            "pos": [
-              30,
-              760
-            ],
-            "size": [
-              230,
-              80
-            ],
-            "flags": {},
-            "order": 7,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "conditioning",
-                "name": "conditioning",
-                "type": "CONDITIONING",
-                "link": 112
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "CONDITIONING",
-                "name": "CONDITIONING",
-                "type": "CONDITIONING",
-                "links": [
-                  113
-                ]
-              }
-            ],
-            "properties": {
-              "Node name for S&R": "ConditioningZeroOut",
-              "cnr_id": "comfy-core",
-              "ver": "0.18.1",
-              "enableTabs": false,
-              "tabWidth": 65,
-              "tabXOffset": 10,
-              "hasSecondTab": false,
-              "secondTabText": "Send Back",
-              "secondTabOffset": 80,
-              "secondTabWidth": 65,
-              "ue_properties": {
-                "widget_ue_connectable": {},
-                "version": "7.7",
-                "input_ue_unconnectable": {}
-              }
-            },
-            "widgets_values": []
-          },
-          {
-            "id": 93,
-            "type": "StringReplace",
-            "pos": [
-              -500,
-              -650
-            ],
-            "size": [
-              430,
-              450
-            ],
-            "flags": {},
-            "order": 8,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "replace",
-                "name": "replace",
-                "type": "STRING",
-                "widget": {
-                  "name": "replace"
-                },
-                "link": 115
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "STRING",
-                "name": "STRING",
-                "type": "STRING",
-                "links": [
-                  121
-                ]
-              }
-            ],
-            "properties": {
-              "Node name for S&R": "StringReplace",
-              "cnr_id": "comfy-core",
-              "ver": "0.18.1",
-              "enableTabs": false,
-              "tabWidth": 65,
-              "tabXOffset": 10,
-              "hasSecondTab": false,
-              "secondTabText": "Send Back",
-              "secondTabOffset": 80,
-              "secondTabWidth": 65,
-              "ue_properties": {
-                "widget_ue_connectable": {},
-                "version": "7.7",
-                "input_ue_unconnectable": {}
-              }
-            },
-            "widgets_values": [
-              "<s>[SYSTEM_PROMPT]你是一个专业的文生图 Prompt 增强助手。你将收到用户的简短图片描述及目标生成分辨率，请据此扩写为一段内容丰富、细节充分的视觉描述，以帮助文生图模型生成高质量的图片。仅输出增强后的描述，不要包含任何解释或前缀。[/SYSTEM_PROMPT][INST]{\"prompt\": \"{prompt}\", \"width\": {width}, \"height\": {height}}[/INST]",
-              "{prompt}",
-              ""
-            ]
-          },
-          {
-            "id": 94,
-            "type": "PrimitiveStringMultiline",
-            "pos": [
-              -950,
-              -660
-            ],
-            "size": [
-              400,
-              200
-            ],
-            "flags": {},
-            "order": 9,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "value",
-                "name": "value",
-                "type": "STRING",
-                "widget": {
-                  "name": "value"
-                },
-                "link": 128
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "STRING",
-                "name": "STRING",
-                "type": "STRING",
-                "links": [
-                  115,
-                  118
-                ]
-              }
-            ],
-            "title": "String (Multiline - Prompt)",
-            "properties": {
-              "Node name for S&R": "PrimitiveStringMultiline",
-              "cnr_id": "comfy-core",
-              "ver": "0.18.1",
-              "enableTabs": false,
-              "tabWidth": 65,
-              "tabXOffset": 10,
-              "hasSecondTab": false,
-              "secondTabText": "Send Back",
-              "secondTabOffset": 80,
-              "secondTabWidth": 65,
-              "ue_properties": {
-                "widget_ue_connectable": {},
-                "version": "7.7",
-                "input_ue_unconnectable": {}
-              }
-            },
-            "widgets_values": [
-              "一张桌面端网页截图，展现了一篇关于科技博客的文章页面。顶部是浅灰色的浏览器界面，左上角有红黄绿三个圆形控制按钮。 当前激活的标签页文字为 'Understanding Diffusion Models'，下方地址栏中清晰显示着 URL：'https://www.ai-research-blog.com/understanding-diffusion-models'。 网页整体采用白底、深灰字体的现代简约设计，带有蓝色的强调元素。 网页顶部的导航栏左侧有一个蓝色的神经网络节点图标以及品牌名 'AI Research'，右侧横向排列着四个导航菜单项：'Home'、'Articles'、'Tutorials' 和 'About'。 网页主体采用左右分栏布局，左侧较宽的主内容区顶部是一个醒目的黑色粗体大标题：'深入浅出：扩散模型 (Diffusion Models) 原理剖析'。大标题下方是正文段落：'扩散模型是一类强大的生成模型，近年来在图像生成上取得了革命性的成功，例如 Stable Diffusion 和 Midjourney。其核心原理主要由两个阶段构成：前向扩散过程（逐步加噪）和反向生成过程（逐步去噪）。' 正文下方是一张居中放置、带有浅灰色边框的原理说明图表。 图表从左到右展示“前向过程”，最左侧是一张清晰的柴犬照片，下方标注 '$X_0$'；随着向右的灰色箭头引导，照片依次演变，噪点逐渐增多，中间的过渡图片下方标注 '$X_t$'，直到最右侧变成一幅完全由彩色随机像素组成的纯噪声图，下方标注 '$X_T$'。 这排图像的上方有一条弧线箭头，文字标注为 '前向过程 (Forward Process): 逐步添加高斯噪声'。 下方有一条弧线箭头，文字标注为 '反向过程 (Reverse Process): 神经网络 (如 U-Net) 学习预测并去除噪声'。 图表下方还有一段补充说明文字：'在实际训练中，模型并不直接生成图像，而是学习在每个时间步 $t$ 预测图像中加入的噪声分布。通过最小化真实噪声与模型预测噪声之间的误差，来实现高质量的去噪还原。' 在网页右侧较窄的侧边栏中，顶部有一个小标题 '相关阅读 (Related Articles)'，下方垂直排列着两条带有下划线的超链接文本：第一条是 '1. GAN 与 Diffusion 模型的深度对比'，第二条是 '2. 浅析 U-Net 架构在图像生成中的关键作用'。 整个页面排版结构清晰，信息量丰富，呈现出专业学术博客的视觉风格。\u0000"
-            ]
-          },
-          {
-            "id": 95,
-            "type": "TextGenerate",
-            "pos": [
-              530,
-              -660
-            ],
-            "size": [
-              400,
-              412
-            ],
-            "flags": {},
-            "order": 10,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "clip",
-                "name": "clip",
-                "type": "CLIP",
-                "link": 116
-              },
-              {
-                "localized_name": "image",
-                "name": "image",
-                "shape": 7,
-                "type": "IMAGE",
-                "link": null
-              },
-              {
-                "localized_name": "video",
-                "name": "video",
-                "shape": 7,
-                "type": "IMAGE",
-                "link": null
-              },
-              {
-                "localized_name": "audio",
-                "name": "audio",
-                "shape": 7,
-                "type": "AUDIO",
-                "link": null
-              },
-              {
-                "localized_name": "prompt",
-                "name": "prompt",
-                "type": "STRING",
-                "widget": {
-                  "name": "prompt"
-                },
-                "link": 117
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "generated_text",
-                "name": "generated_text",
-                "type": "STRING",
-                "links": [
-                  119
-                ]
-              }
-            ],
-            "properties": {
-              "Node name for S&R": "TextGenerate",
-              "cnr_id": "comfy-core",
-              "ver": "0.18.1",
-              "enableTabs": false,
-              "tabWidth": 65,
-              "tabXOffset": 10,
-              "hasSecondTab": false,
-              "secondTabText": "Send Back",
-              "secondTabOffset": 80,
-              "secondTabWidth": 65,
-              "ue_properties": {
-                "widget_ue_connectable": {},
-                "version": "7.7",
-                "input_ue_unconnectable": {}
-              }
-            },
-            "widgets_values": [
-              "",
-              2048,
-              "on",
-              0.6,
-              64,
-              0.8,
-              0.05,
-              1.05,
-              0,
-              0,
-              false,
-              true
-            ]
-          },
-          {
-            "id": 96,
-            "type": "PrimitiveBoolean",
-            "pos": [
-              -490,
-              60
-            ],
-            "size": [
-              270,
-              100
-            ],
-            "flags": {},
-            "order": 11,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "value",
-                "name": "value",
-                "type": "BOOLEAN",
-                "widget": {
-                  "name": "value"
-                },
-                "link": 127
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "BOOLEAN",
-                "name": "BOOLEAN",
-                "type": "BOOLEAN",
-                "links": [
-                  120
-                ]
-              }
-            ],
-            "title": "Enable prompt enhancement?",
-            "properties": {
-              "Node name for S&R": "PrimitiveBoolean",
-              "cnr_id": "comfy-core",
-              "ver": "0.18.1",
-              "enableTabs": false,
-              "tabWidth": 65,
-              "tabXOffset": 10,
-              "hasSecondTab": false,
-              "secondTabText": "Send Back",
-              "secondTabOffset": 80,
-              "secondTabWidth": 65,
-              "ue_properties": {
-                "widget_ue_connectable": {},
-                "version": "7.7",
-                "input_ue_unconnectable": {}
-              }
-            },
-            "widgets_values": [
-              true
-            ]
-          },
-          {
-            "id": 97,
-            "type": "ComfySwitchNode",
-            "pos": [
-              550,
-              -10
-            ],
-            "size": [
-              270,
-              130
-            ],
-            "flags": {},
-            "order": 12,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "on_false",
-                "name": "on_false",
-                "type": "STRING",
-                "link": 118
-              },
-              {
-                "localized_name": "on_true",
-                "name": "on_true",
-                "type": "STRING",
-                "link": 119
-              },
-              {
-                "localized_name": "switch",
-                "name": "switch",
-                "type": "BOOLEAN",
-                "widget": {
-                  "name": "switch"
-                },
-                "link": 120
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "output",
-                "name": "output",
-                "type": "STRING",
-                "links": [
-                  131,
-                  134
-                ]
-              }
-            ],
-            "properties": {
-              "Node name for S&R": "ComfySwitchNode",
-              "cnr_id": "comfy-core",
-              "ver": "0.18.1",
-              "enableTabs": false,
-              "tabWidth": 65,
-              "tabXOffset": 10,
-              "hasSecondTab": false,
-              "secondTabText": "Send Back",
-              "secondTabOffset": 80,
-              "secondTabWidth": 65,
-              "ue_properties": {
-                "widget_ue_connectable": {},
-                "version": "7.7",
-                "input_ue_unconnectable": {}
-              }
-            },
-            "widgets_values": [
-              false
-            ]
-          },
-          {
-            "id": 98,
             "type": "CLIPLoader",
             "pos": [
-              -490,
-              -150
+              -499.9999875370205,
+              -150.00003815566242
             ],
             "size": [
               510,
@@ -1243,7 +1326,7 @@
                 "widget": {
                   "name": "clip_name"
                 },
-                "link": 132
+                "link": 120
               }
             ],
             "outputs": [
@@ -1252,7 +1335,7 @@
                 "name": "CLIP",
                 "type": "CLIP",
                 "links": [
-                  116
+                  112
                 ]
               }
             ],
@@ -1288,11 +1371,11 @@
             ]
           },
           {
-            "id": 99,
+            "id": 92,
             "type": "PreviewAny",
             "pos": [
-              -950,
-              -410
+              -949.9999487582014,
+              -400.0000365021632
             ],
             "size": [
               400,
@@ -1306,7 +1389,7 @@
                 "localized_name": "source",
                 "name": "source",
                 "type": "*",
-                "link": 129
+                "link": 113
               }
             ],
             "outputs": [
@@ -1315,7 +1398,7 @@
                 "name": "STRING",
                 "type": "STRING",
                 "links": [
-                  122
+                  116
                 ]
               }
             ],
@@ -1344,11 +1427,11 @@
             ]
           },
           {
-            "id": 100,
+            "id": 93,
             "type": "PreviewAny",
             "pos": [
-              -950,
-              -190
+              -949.9999487582014,
+              -180.0000270459982
             ],
             "size": [
               400,
@@ -1362,7 +1445,7 @@
                 "localized_name": "source",
                 "name": "source",
                 "type": "*",
-                "link": 130
+                "link": 114
               }
             ],
             "outputs": [
@@ -1371,7 +1454,7 @@
                 "name": "STRING",
                 "type": "STRING",
                 "links": [
-                  124
+                  118
                 ]
               }
             ],
@@ -1400,11 +1483,11 @@
             ]
           },
           {
-            "id": 101,
+            "id": 94,
             "type": "StringReplace",
             "pos": [
-              -30,
-              -650
+              -29.999979734354838,
+              -640.0000158201264
             ],
             "size": [
               230,
@@ -1421,7 +1504,7 @@
                 "widget": {
                   "name": "string"
                 },
-                "link": 121
+                "link": 115
               },
               {
                 "localized_name": "replace",
@@ -1430,74 +1513,7 @@
                 "widget": {
                   "name": "replace"
                 },
-                "link": 122
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "STRING",
-                "name": "STRING",
-                "type": "STRING",
-                "links": [
-                  123
-                ]
-              }
-            ],
-            "properties": {
-              "Node name for S&R": "StringReplace",
-              "cnr_id": "comfy-core",
-              "ver": "0.18.1",
-              "enableTabs": false,
-              "tabWidth": 65,
-              "tabXOffset": 10,
-              "hasSecondTab": false,
-              "secondTabText": "Send Back",
-              "secondTabOffset": 80,
-              "secondTabWidth": 65,
-              "ue_properties": {
-                "widget_ue_connectable": {},
-                "version": "7.7",
-                "input_ue_unconnectable": {}
-              }
-            },
-            "widgets_values": [
-              "",
-              "{width}",
-              ""
-            ]
-          },
-          {
-            "id": 102,
-            "type": "StringReplace",
-            "pos": [
-              220,
-              -650
-            ],
-            "size": [
-              250,
-              450
-            ],
-            "flags": {},
-            "order": 17,
-            "mode": 0,
-            "inputs": [
-              {
-                "localized_name": "string",
-                "name": "string",
-                "type": "STRING",
-                "widget": {
-                  "name": "string"
-                },
-                "link": 123
-              },
-              {
-                "localized_name": "replace",
-                "name": "replace",
-                "type": "STRING",
-                "widget": {
-                  "name": "replace"
-                },
-                "link": 124
+                "link": 116
               }
             ],
             "outputs": [
@@ -1529,16 +1545,83 @@
             },
             "widgets_values": [
               "",
+              "{width}",
+              ""
+            ]
+          },
+          {
+            "id": 95,
+            "type": "StringReplace",
+            "pos": [
+              219.99995041686884,
+              -640.0000158201264
+            ],
+            "size": [
+              250,
+              450
+            ],
+            "flags": {},
+            "order": 17,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "string",
+                "name": "string",
+                "type": "STRING",
+                "widget": {
+                  "name": "string"
+                },
+                "link": 117
+              },
+              {
+                "localized_name": "replace",
+                "name": "replace",
+                "type": "STRING",
+                "widget": {
+                  "name": "replace"
+                },
+                "link": 118
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  119
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "StringReplace",
+              "cnr_id": "comfy-core",
+              "ver": "0.18.1",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65,
+              "ue_properties": {
+                "widget_ue_connectable": {},
+                "version": "7.7",
+                "input_ue_unconnectable": {}
+              }
+            },
+            "widgets_values": [
+              "",
               "{height}",
               ""
             ]
           },
           {
-            "id": 103,
+            "id": 97,
             "type": "PreviewAny",
             "pos": [
-              970,
-              -660
+              970.000013651648,
+              -650.0000348486639
             ],
             "size": [
               570,
@@ -1552,7 +1635,7 @@
                 "localized_name": "source",
                 "name": "source",
                 "type": "*",
-                "link": 134
+                "link": 124
               }
             ],
             "outputs": [
@@ -1605,9 +1688,9 @@
             "id": 2,
             "title": "Image Size",
             "bounding": [
-              -490,
-              950,
-              300,
+              -480,
+              940,
+              310,
               290
             ],
             "color": "#3f789e",
@@ -1631,14 +1714,14 @@
             "bounding": [
               -490,
               250,
-              300,
+              320,
               670
             ],
             "color": "#3f789e",
             "flags": {}
           },
           {
-            "id": 7,
+            "id": 5,
             "title": "Prompt Enhancement",
             "bounding": [
               -510,
@@ -1684,6 +1767,14 @@
             "type": "CONDITIONING"
           },
           {
+            "id": 83,
+            "origin_id": 72,
+            "origin_slot": 0,
+            "target_id": 70,
+            "target_slot": 2,
+            "type": "CONDITIONING"
+          },
+          {
             "id": 80,
             "origin_id": 71,
             "origin_slot": 0,
@@ -1700,12 +1791,76 @@
             "type": "CLIP"
           },
           {
+            "id": 100,
+            "origin_id": 75,
+            "origin_slot": 0,
+            "target_id": 67,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 82,
+            "origin_id": 62,
+            "origin_slot": 0,
+            "target_id": 72,
+            "target_slot": 0,
+            "type": "CLIP"
+          },
+          {
+            "id": 92,
+            "origin_id": 78,
+            "origin_slot": 0,
+            "target_id": 83,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 87,
+            "origin_id": 78,
+            "origin_slot": 0,
+            "target_id": 75,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 89,
+            "origin_id": 74,
+            "origin_slot": 0,
+            "target_id": 75,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 88,
+            "origin_id": 76,
+            "origin_slot": 0,
+            "target_id": 75,
+            "target_slot": 2,
+            "type": "BOOLEAN"
+          },
+          {
             "id": 84,
             "origin_id": 65,
             "origin_slot": 0,
             "target_id": -20,
             "target_slot": 0,
             "type": "IMAGE"
+          },
+          {
+            "id": 102,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 78,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 103,
+            "origin_id": -10,
+            "origin_slot": 1,
+            "target_id": 76,
+            "target_slot": 0,
+            "type": "BOOLEAN"
           },
           {
             "id": 104,
@@ -1724,9 +1879,25 @@
             "type": "INT"
           },
           {
-            "id": 108,
+            "id": 106,
             "origin_id": -10,
             "origin_slot": 4,
+            "target_id": 70,
+            "target_slot": 5,
+            "type": "INT"
+          },
+          {
+            "id": 107,
+            "origin_id": -10,
+            "origin_slot": 5,
+            "target_id": 70,
+            "target_slot": 6,
+            "type": "FLOAT"
+          },
+          {
+            "id": 108,
+            "origin_id": -10,
+            "origin_slot": 6,
             "target_id": 70,
             "target_slot": 4,
             "type": "INT"
@@ -1734,7 +1905,7 @@
           {
             "id": 109,
             "origin_id": -10,
-            "origin_slot": 5,
+            "origin_slot": 7,
             "target_id": 66,
             "target_slot": 0,
             "type": "COMBO"
@@ -1742,168 +1913,96 @@
           {
             "id": 110,
             "origin_id": -10,
-            "origin_slot": 6,
+            "origin_slot": 8,
             "target_id": 62,
             "target_slot": 0,
             "type": "COMBO"
           },
           {
             "id": 112,
-            "origin_id": 67,
-            "origin_slot": 0,
-            "target_id": 91,
-            "target_slot": 0,
-            "type": "CONDITIONING"
-          },
-          {
-            "id": 113,
             "origin_id": 91,
             "origin_slot": 0,
-            "target_id": 70,
-            "target_slot": 2,
-            "type": "CONDITIONING"
-          },
-          {
-            "id": 115,
-            "origin_id": 94,
-            "origin_slot": 0,
-            "target_id": 93,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 116,
-            "origin_id": 98,
-            "origin_slot": 0,
-            "target_id": 95,
+            "target_id": 74,
             "target_slot": 0,
             "type": "CLIP"
           },
           {
-            "id": 117,
-            "origin_id": 102,
-            "origin_slot": 0,
-            "target_id": 95,
-            "target_slot": 4,
-            "type": "STRING"
-          },
-          {
-            "id": 118,
-            "origin_id": 94,
-            "origin_slot": 0,
-            "target_id": 97,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 119,
-            "origin_id": 95,
-            "origin_slot": 0,
-            "target_id": 97,
-            "target_slot": 1,
-            "type": "STRING"
-          },
-          {
-            "id": 120,
-            "origin_id": 96,
-            "origin_slot": 0,
-            "target_id": 97,
-            "target_slot": 2,
-            "type": "BOOLEAN"
-          },
-          {
-            "id": 121,
-            "origin_id": 93,
-            "origin_slot": 0,
-            "target_id": 101,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 122,
-            "origin_id": 99,
-            "origin_slot": 0,
-            "target_id": 101,
-            "target_slot": 1,
-            "type": "STRING"
-          },
-          {
-            "id": 123,
-            "origin_id": 101,
-            "origin_slot": 0,
-            "target_id": 102,
-            "target_slot": 0,
-            "type": "STRING"
-          },
-          {
-            "id": 124,
-            "origin_id": 100,
-            "origin_slot": 0,
-            "target_id": 102,
-            "target_slot": 1,
-            "type": "STRING"
-          },
-          {
-            "id": 127,
+            "id": 113,
             "origin_id": -10,
-            "origin_slot": 1,
-            "target_id": 96,
+            "origin_slot": 2,
+            "target_id": 92,
             "target_slot": 0,
-            "type": "BOOLEAN"
+            "type": "*"
           },
           {
-            "id": 128,
+            "id": 114,
             "origin_id": -10,
+            "origin_slot": 3,
+            "target_id": 93,
+            "target_slot": 0,
+            "type": "*"
+          },
+          {
+            "id": 115,
+            "origin_id": 83,
             "origin_slot": 0,
             "target_id": 94,
             "target_slot": 0,
             "type": "STRING"
           },
           {
-            "id": 129,
-            "origin_id": -10,
-            "origin_slot": 2,
-            "target_id": 99,
-            "target_slot": 0,
-            "type": "*"
-          },
-          {
-            "id": 130,
-            "origin_id": -10,
-            "origin_slot": 3,
-            "target_id": 100,
-            "target_slot": 0,
-            "type": "*"
-          },
-          {
-            "id": 131,
-            "origin_id": 97,
+            "id": 116,
+            "origin_id": 92,
             "origin_slot": 0,
-            "target_id": 67,
+            "target_id": 94,
             "target_slot": 1,
             "type": "STRING"
           },
           {
-            "id": 132,
+            "id": 117,
+            "origin_id": 94,
+            "origin_slot": 0,
+            "target_id": 95,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 118,
+            "origin_id": 93,
+            "origin_slot": 0,
+            "target_id": 95,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 119,
+            "origin_id": 95,
+            "origin_slot": 0,
+            "target_id": 74,
+            "target_slot": 4,
+            "type": "STRING"
+          },
+          {
+            "id": 120,
             "origin_id": -10,
-            "origin_slot": 7,
-            "target_id": 98,
+            "origin_slot": 9,
+            "target_id": 91,
             "target_slot": 0,
             "type": "COMBO"
           },
           {
-            "id": 133,
+            "id": 121,
             "origin_id": -10,
-            "origin_slot": 8,
+            "origin_slot": 10,
             "target_id": 63,
             "target_slot": 0,
             "type": "COMBO"
           },
           {
-            "id": 134,
-            "origin_id": 97,
+            "id": 124,
+            "origin_id": 75,
             "origin_slot": 0,
-            "target_id": 103,
+            "target_id": 97,
             "target_slot": 0,
             "type": "STRING"
           }
@@ -1924,10 +2023,10 @@
     "VHS_KeepIntermediate": true,
     "ue_links": [],
     "ds": {
-      "scale": 0.9140624801882293,
+      "scale": 0.9090909090909091,
       "offset": [
-        1373.550831401263,
-        -6.184895100410662
+        1114.0315493401122,
+        -42.017351443810405
       ]
     }
   },

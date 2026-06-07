@@ -1,0 +1,73 @@
+{
+  "10": {
+    "inputs": {
+      "unet_name": "ideogram4_nvfp4_mixed.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader"
+  },
+  "11": {
+    "inputs": {
+      "clip_name": "qwen3vl_8b_fp8_scaled.safetensors",
+      "type": "ideogram4"
+    },
+    "class_type": "CLIPLoader"
+  },
+  "12": {
+    "inputs": {
+      "vae_name": "flux2-vae.safetensors"
+    },
+    "class_type": "VAELoader"
+  },
+  "6": {
+    "inputs": {
+      "text": "A cute orange cat wearing a tiny top hat, sitting on a stack of old books in a vintage library, dramatic chiaroscuro lighting, oil painting style, masterpiece",
+      "clip": ["11", 0]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "7": {
+    "inputs": {
+      "text": "",
+      "clip": ["11", 0]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "5": {
+    "inputs": {
+      "seed": 88,
+      "steps": 28,
+      "cfg": 4.0,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1.0,
+      "model": ["10", 0],
+      "positive": ["6", 0],
+      "negative": ["7", 0],
+      "latent_image": ["13", 0]
+    },
+    "class_type": "KSampler"
+  },
+  "13": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage"
+  },
+  "8": {
+    "inputs": {
+      "samples": ["5", 0],
+      "vae": ["12", 0]
+    },
+    "class_type": "VAEDecode"
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "ComfyUI_ideogram4",
+      "images": ["8", 0]
+    },
+    "class_type": "SaveImage"
+  }
+}
