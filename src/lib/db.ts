@@ -32,10 +32,16 @@ function initSchema() {
       image_path TEXT,
       comfyui_prompt_id TEXT,
       error TEXT,
+      enhanced_prompt TEXT,
       created_at TEXT NOT NULL DEFAULT (datetime('now')),
       completed_at TEXT
     )
   `);
+  try {
+    db!.exec("ALTER TABLE tasks ADD COLUMN enhanced_prompt TEXT");
+  } catch {
+    // Column already exists
+  }
 }
 
 export interface TaskRow {
@@ -48,6 +54,7 @@ export interface TaskRow {
   image_path: string | null;
   comfyui_prompt_id: string | null;
   error: string | null;
+  enhanced_prompt: string | null;
   created_at: string;
   completed_at: string | null;
 }
@@ -69,14 +76,14 @@ export function insertTask(task: {
 export function updateStatus(
   id: string,
   status: string,
-  extra?: { comfyui_prompt_id?: string; image_path?: string; error?: string }
+  extra?: { comfyui_prompt_id?: string; image_path?: string; enhanced_prompt?: string | null; error?: string }
 ): void {
   if (status === "completed") {
     getDb()
       .prepare(
-        "UPDATE tasks SET status = ?, image_path = ?, completed_at = datetime('now') WHERE id = ?"
+        "UPDATE tasks SET status = ?, image_path = ?, enhanced_prompt = ?, completed_at = datetime('now') WHERE id = ?"
       )
-      .run(status, extra?.image_path ?? null, id);
+      .run(status, extra?.image_path ?? null, extra?.enhanced_prompt ?? null, id);
   } else if (status === "failed") {
     getDb()
       .prepare(

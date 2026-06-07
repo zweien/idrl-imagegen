@@ -112,6 +112,12 @@ export function buildWorkflow(params: GenerateParams): Record<string, unknown> {
         "sampling_mode.seed": 0,
       },
     };
+    workflow["103"] = {
+      class_type: "PreviewAny",
+      inputs: {
+        source: ["95", 0],
+      },
+    };
     workflow["67"] = {
       class_type: "CLIPTextEncode",
       inputs: {

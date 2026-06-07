@@ -7,6 +7,7 @@ interface TaskData {
   status: string;
   imageUrl: string | null;
   error: string | null;
+  enhancedPrompt: string | null;
 }
 
 export function TaskStatus({ taskId }: { taskId: string }) {
@@ -68,7 +69,17 @@ export function TaskStatus({ taskId }: { taskId: string }) {
   }
 
   if (task.status === "completed" && task.imageUrl) {
-    return <ImageResult imageUrl={task.imageUrl} />;
+    return (
+      <div className="space-y-3">
+        <ImageResult imageUrl={task.imageUrl} />
+        {task.enhancedPrompt && (
+          <div className="rounded-lg border p-3">
+            <p className="mb-1 text-sm font-medium">增强后的提示词</p>
+            <p className="text-sm text-muted-foreground whitespace-pre-wrap">{task.enhancedPrompt}</p>
+          </div>
+        )}
+      </div>
+    );
   }
 
   return null;

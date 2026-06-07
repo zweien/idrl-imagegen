@@ -21,6 +21,7 @@ export async function GET(request: NextRequest) {
           ? `/api/images/${t.image_path}`
           : null,
       createdAt: t.created_at,
+      enhancedPrompt: t.enhanced_prompt,
     })),
     total: result.total,
     page,

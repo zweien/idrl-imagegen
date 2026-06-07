@@ -10,6 +10,7 @@ interface HistoryItem {
   enhancement: boolean;
   status: string;
   imageUrl: string | null;
+  enhancedPrompt: string | null;
   createdAt: string;
 }
 
@@ -124,6 +125,9 @@ export function HistoryList() {
             )}
             <div className="mt-3 space-y-1 text-sm">
               <p><strong>提示词：</strong>{selected.prompt}</p>
+              {selected.enhancedPrompt && (
+                <p><strong>增强提示词：</strong>{selected.enhancedPrompt}</p>
+              )}
               <p><strong>尺寸：</strong>{selected.width}×{selected.height}</p>
               <p><strong>增强：</strong>{selected.enhancement ? "是" : "否"}</p>
               <p><strong>时间：</strong>{selected.createdAt}</p>

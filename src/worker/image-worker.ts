@@ -44,7 +44,9 @@ export function createWorker(redisUrl: string): Worker<ImageJobData> {
         const localFilename = `${taskId}.png`;
         writeFileSync(join(IMAGE_DIR, localFilename), imageBuffer);
 
-        updateStatus(taskId, "completed", { image_path: localFilename });
+        const enhancedPrompt = extractEnhancedPrompt(history.outputs, enhancement);
+
+        updateStatus(taskId, "completed", { image_path: localFilename, enhanced_prompt: enhancedPrompt });
       } catch (error: unknown) {
         const message = error instanceof Error ? error.message : String(error);
         updateStatus(taskId, "failed", { error: message });
@@ -63,4 +65,18 @@ export function createWorker(redisUrl: string): Worker<ImageJobData> {
   });
 
   return worker;
+}
+
+function extractEnhancedPrompt(
+  outputs: Record<string, any>,
+  enhancement: boolean
+): string | null {
+  if (!enhancement) return null;
+  const previewOutput = outputs["103"];
+  if (previewOutput?.STRING) {
+    return Array.isArray(previewOutput.STRING)
+      ? previewOutput.STRING[0]
+      : String(previewOutput.STRING);
+  }
+  return null;
 }

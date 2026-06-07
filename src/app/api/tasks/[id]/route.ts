@@ -24,6 +24,7 @@ export async function GET(
         ? `/api/images/${task.image_path}`
         : null,
     error: task.error,
+    enhancedPrompt: task.enhanced_prompt,
     createdAt: task.created_at,
     completedAt: task.completed_at,
   });
