@@ -42,5 +42,7 @@ next-env.d.ts
 
 # storage
 storage/data.db
+storage/data.db-shm
+storage/data.db-wal
 storage/images/*.png
 storage/images/*.jpg
