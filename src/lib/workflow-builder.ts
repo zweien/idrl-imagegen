@@ -47,6 +47,7 @@ export function buildWorkflow(params: GenerateParams): Record<string, unknown> {
       inputs: {
         width: params.width,
         height: params.height,
+        batch_size: 1,
       },
     },
     "91": {
@@ -101,17 +102,14 @@ export function buildWorkflow(params: GenerateParams): Record<string, unknown> {
       inputs: {
         clip: ["98", 0],
         prompt: pePrompt,
-        max_new_tokens: 2048,
-        keep_alive: "on",
+        max_length: 2048,
+        sampling_mode: "on",
         temperature: 0.6,
         top_k: 64,
         top_p: 0.8,
         min_p: 0.05,
-        repeat_penalty: 1.05,
+        repetition_penalty: 1.05,
         seed: 0,
-        num_beams: 0,
-        disable_multilingual: false,
-        include_reasoning: true,
       },
     };
     workflow["67"] = {
