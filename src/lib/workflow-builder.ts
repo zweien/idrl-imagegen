@@ -104,12 +104,12 @@ export function buildWorkflow(params: GenerateParams): Record<string, unknown> {
         prompt: pePrompt,
         max_length: 2048,
         sampling_mode: "on",
-        temperature: 0.6,
-        top_k: 64,
-        top_p: 0.8,
-        min_p: 0.05,
-        repetition_penalty: 1.05,
-        seed: 0,
+        "sampling_mode.temperature": 0.6,
+        "sampling_mode.top_k": 64,
+        "sampling_mode.top_p": 0.8,
+        "sampling_mode.min_p": 0.05,
+        "sampling_mode.repetition_penalty": 1.05,
+        "sampling_mode.seed": 0,
       },
     };
     workflow["67"] = {
