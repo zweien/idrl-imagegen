@@ -2,18 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
 import { insertTask } from "@/lib/db";
 import { imageQueue } from "@/lib/queue";
-
-const SIZE_OPTIONS: Record<string, { width: number; height: number }> = {
-  landscape: { width: 1264, height: 848 },
-  portrait: { width: 848, height: 1264 },
-  square: { width: 1024, height: 1024 },
-  widescreen: { width: 1920, height: 1080 },
-};
+import { SIZE_OPTIONS, MODELS, DEFAULT_MODEL, type SizeKey } from "@/lib/types";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { prompt, size = "landscape", enhancement = true } = body;
+    const { prompt, size = "landscape", enhancement = true, model = DEFAULT_MODEL, enhancedPrompt } = body;
 
     if (!prompt || typeof prompt !== "string" || prompt.trim().length === 0) {
       return NextResponse.json(
@@ -22,7 +16,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const dimensions = SIZE_OPTIONS[size] || SIZE_OPTIONS.landscape;
+    if (!MODELS[model]) {
+      return NextResponse.json(
+        { error: `Unknown model: ${model}` },
+        { status: 400 }
+      );
+    }
+
+    const dimensions = SIZE_OPTIONS[(size as SizeKey) || "landscape"] || SIZE_OPTIONS.landscape;
     const taskId = uuidv4();
 
     insertTask({
@@ -31,19 +32,21 @@ export async function POST(request: NextRequest) {
       width: dimensions.width,
       height: dimensions.height,
       enhancement: !!enhancement,
+      model,
+      enhancedPrompt: enhancedPrompt || undefined,
     });
 
-    await imageQueue.add(
-      "generate",
-      {
-        taskId,
-        prompt: prompt.trim(),
-        width: dimensions.width,
-        height: dimensions.height,
-        enhancement: !!enhancement,
-      },
-      { attempts: 1 }
-    );
+    const jobData = {
+      taskId,
+      prompt: (enhancedPrompt || prompt).trim(),
+      width: dimensions.width,
+      height: dimensions.height,
+      enhancement: false,
+      model,
+    };
+    console.log("[generate] queuing job:", JSON.stringify({ taskId, model, size, enhancement }));
+
+    await imageQueue.add("generate", jobData, { attempts: 1 });
 
     return NextResponse.json({ taskId });
   } catch (error: unknown) {

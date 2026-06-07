@@ -1,8 +1,9 @@
 import { Worker, Job } from "bullmq";
-import { buildWorkflow } from "../lib/workflow-builder";
+import { buildWorkflowForModel } from "../lib/workflow-builder";
 import { submitPrompt, pollUntilComplete, downloadImage } from "../lib/comfyui";
 import { getDb, updateStatus } from "../lib/db";
 import { ImageJobData, QUEUE_NAME } from "../lib/queue";
+import { MODELS, DEFAULT_MODEL } from "../lib/types";
 import { join } from "path";
 import { mkdirSync, writeFileSync } from "fs";
 
@@ -21,19 +22,21 @@ export function createWorker(redisUrl: string): Worker<ImageJobData> {
   const worker = new Worker<ImageJobData>(
     QUEUE_NAME,
     async (job: Job<ImageJobData>) => {
-      const { taskId, prompt, width, height, enhancement } = job.data;
+      const { taskId, prompt, width, height, enhancement, model = DEFAULT_MODEL } = job.data;
+
+      console.log(`[worker] processing job ${job.id}, taskId=${taskId}, model=${model}, size=${width}x${height}`);
 
       try {
         updateStatus(taskId, "processing");
 
-        const workflow = buildWorkflow({ prompt, width, height, enhancement });
+        const { workflow, outputNodeId } = buildWorkflowForModel(model, { prompt, width, height, enhancement });
         const comfyuiId = await submitPrompt(workflow);
 
         updateStatus(taskId, "processing", { comfyui_prompt_id: comfyuiId });
 
         const history = await pollUntilComplete(comfyuiId);
 
-        const saveOutput = history.outputs["73"];
+        const saveOutput = history.outputs[outputNodeId];
         if (!saveOutput?.images?.[0]) {
           throw new Error("No image found in ComfyUI output");
         }
@@ -44,7 +47,7 @@ export function createWorker(redisUrl: string): Worker<ImageJobData> {
         const localFilename = `${taskId}.png`;
         writeFileSync(join(IMAGE_DIR, localFilename), imageBuffer);
 
-        const enhancedPrompt = extractEnhancedPrompt(history.outputs, enhancement);
+        const enhancedPrompt = extractEnhancedPrompt(history.outputs, enhancement, model);
 
         updateStatus(taskId, "completed", { image_path: localFilename, enhanced_prompt: enhancedPrompt });
       } catch (error: unknown) {
@@ -69,10 +72,13 @@ export function createWorker(redisUrl: string): Worker<ImageJobData> {
 
 function extractEnhancedPrompt(
   outputs: Record<string, any>,
-  enhancement: boolean
+  enhancement: boolean,
+  model: string
 ): string | null {
   if (!enhancement) return null;
-  const previewOutput = outputs["103"];
+  const modelConfig = MODELS[model];
+  const nodeId = modelConfig?.enhanceOutputNodeId || "103";
+  const previewOutput = outputs[nodeId];
   if (previewOutput?.text) {
     return Array.isArray(previewOutput.text)
       ? previewOutput.text[0]

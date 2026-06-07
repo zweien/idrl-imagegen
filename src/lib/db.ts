@@ -42,6 +42,32 @@ function initSchema() {
   } catch {
     // Column already exists
   }
+  try {
+    db!.exec("ALTER TABLE tasks ADD COLUMN model TEXT NOT NULL DEFAULT 'ernie-turbo'");
+  } catch {
+    // Column already exists
+  }
+
+  db!.exec(`
+    CREATE TABLE IF NOT EXISTS conversations (
+      id TEXT PRIMARY KEY,
+      title TEXT NOT NULL DEFAULT '新对话',
+      created_at TEXT NOT NULL DEFAULT (datetime('now')),
+      last_message_at TEXT NOT NULL DEFAULT (datetime('now'))
+    )
+  `);
+
+  db!.exec(`
+    CREATE TABLE IF NOT EXISTS messages (
+      id TEXT PRIMARY KEY,
+      conversation_id TEXT NOT NULL,
+      role TEXT NOT NULL,
+      content TEXT NOT NULL,
+      created_at TEXT NOT NULL DEFAULT (datetime('now')),
+      FOREIGN KEY (conversation_id) REFERENCES conversations(id) ON DELETE CASCADE
+    )
+  `);
+  db!.exec("CREATE INDEX IF NOT EXISTS idx_messages_conversation ON messages(conversation_id)");
 }
 
 export interface TaskRow {
@@ -50,6 +76,7 @@ export interface TaskRow {
   width: number;
   height: number;
   enhancement: number;
+  model: string;
   status: string;
   image_path: string | null;
   comfyui_prompt_id: string | null;
@@ -65,12 +92,14 @@ export function insertTask(task: {
   width: number;
   height: number;
   enhancement: boolean;
+  model: string;
+  enhancedPrompt?: string;
 }): void {
   getDb()
     .prepare(
-      "INSERT INTO tasks (id, prompt, width, height, enhancement) VALUES (?, ?, ?, ?, ?)"
+      "INSERT INTO tasks (id, prompt, width, height, enhancement, model, enhanced_prompt) VALUES (?, ?, ?, ?, ?, ?, ?)"
     )
-    .run(task.id, task.prompt, task.width, task.height, task.enhancement ? 1 : 0);
+    .run(task.id, task.prompt, task.width, task.height, task.enhancement ? 1 : 0, task.model, task.enhancedPrompt ?? null);
 }
 
 export function updateStatus(
@@ -81,7 +110,7 @@ export function updateStatus(
   if (status === "completed") {
     getDb()
       .prepare(
-        "UPDATE tasks SET status = ?, image_path = ?, enhanced_prompt = ?, completed_at = datetime('now') WHERE id = ?"
+        "UPDATE tasks SET status = ?, image_path = ?, enhanced_prompt = COALESCE(?, enhanced_prompt), completed_at = datetime('now') WHERE id = ?"
       )
       .run(status, extra?.image_path ?? null, extra?.enhanced_prompt ?? null, id);
   } else if (status === "failed") {
@@ -115,4 +144,66 @@ export function getTasks(
     .prepare("SELECT * FROM tasks ORDER BY created_at DESC LIMIT ? OFFSET ?")
     .all(limit, offset) as TaskRow[];
   return { tasks, total };
+}
+
+// --- Conversations ---
+
+export interface ConversationRow {
+  id: string;
+  title: string;
+  created_at: string;
+  last_message_at: string;
+}
+
+export function getConversations(): ConversationRow[] {
+  return getDb()
+    .prepare("SELECT * FROM conversations ORDER BY last_message_at DESC")
+    .all() as ConversationRow[];
+}
+
+export function createConversation(id: string): ConversationRow {
+  getDb()
+    .prepare("INSERT INTO conversations (id) VALUES (?)")
+    .run(id);
+  return getDb().prepare("SELECT * FROM conversations WHERE id = ?").get(id) as ConversationRow;
+}
+
+export function updateConversation(
+  id: string,
+  updates: { title?: string; lastMessageAt?: string }
+): void {
+  const sets: string[] = [];
+  const vals: unknown[] = [];
+  if (updates.title !== undefined) { sets.push("title = ?"); vals.push(updates.title); }
+  if (updates.lastMessageAt !== undefined) { sets.push("last_message_at = ?"); vals.push(updates.lastMessageAt); }
+  if (sets.length === 0) return;
+  vals.push(id);
+  getDb().prepare(`UPDATE conversations SET ${sets.join(", ")} WHERE id = ?`).run(...vals);
+}
+
+export function deleteConversation(id: string): void {
+  getDb().prepare("DELETE FROM messages WHERE conversation_id = ?").run(id);
+  getDb().prepare("DELETE FROM conversations WHERE id = ?").run(id);
+}
+
+export function saveMessages(conversationId: string, messages: Array<{ id: string; role: string; [key: string]: unknown }>): void {
+  const del = getDb().prepare("DELETE FROM messages WHERE conversation_id = ?");
+  const ins = getDb().prepare("INSERT INTO messages (id, conversation_id, role, content) VALUES (?, ?, ?, ?)");
+  const upd = getDb().prepare("UPDATE conversations SET last_message_at = datetime('now') WHERE id = ?");
+
+  const tx = getDb().transaction(() => {
+    del.run(conversationId);
+    for (const msg of messages) {
+      ins.run(msg.id, conversationId, msg.role, JSON.stringify(msg));
+    }
+    upd.run(conversationId);
+  });
+  tx();
+}
+
+export function loadMessages(conversationId: string): Array<Record<string, unknown>> {
+  const rows = getDb()
+    .prepare("SELECT content FROM messages WHERE conversation_id = ? ORDER BY created_at ASC")
+    .all(conversationId) as Array<{ content: string }>;
+  return rows.map((r) => JSON.parse(r.content));
 }

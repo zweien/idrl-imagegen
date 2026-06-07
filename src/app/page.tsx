@@ -1,5 +1,5 @@
-import { GenerateForm } from "@/components/generate-form";
+import { ConversationManager } from "@/components/conversation-manager";
 
 export default function Home() {
-  return <GenerateForm />;
+  return <ConversationManager />;
 }

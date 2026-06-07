@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { MODELS } from "@/lib/types";
 
 interface HistoryItem {
   id: string;
@@ -8,6 +9,7 @@ interface HistoryItem {
   width: number;
   height: number;
   enhancement: boolean;
+  model: string;
   status: string;
   imageUrl: string | null;
   enhancedPrompt: string | null;
@@ -63,19 +65,26 @@ export function HistoryList() {
             className="cursor-pointer overflow-hidden rounded-lg border"
             onClick={() => setSelected(item)}
           >
-            {item.status === "completed" && item.imageUrl ? (
-              <img
-                src={item.imageUrl}
-                alt={item.prompt}
-                className="aspect-square w-full object-cover"
-              />
-            ) : (
-              <div className="flex aspect-square items-center justify-center bg-muted">
-                <span className="text-xs text-muted-foreground">
-                  {item.status === "failed" ? "失败" : "处理中"}
+            <div className="relative">
+              {item.status === "completed" && item.imageUrl ? (
+                <img
+                  src={item.imageUrl}
+                  alt={item.prompt}
+                  className="aspect-square w-full object-cover"
+                />
+              ) : (
+                <div className="flex aspect-square items-center justify-center bg-muted">
+                  <span className="text-xs text-muted-foreground">
+                    {item.status === "failed" ? "失败" : "处理中"}
+                  </span>
+                </div>
+              )}
+              {MODELS[item.model] && (
+                <span className="absolute bottom-1 left-1 rounded bg-black/60 px-1.5 py-0.5 text-[10px] text-white">
+                  {MODELS[item.model].label}
                 </span>
-              </div>
-            )}
+              )}
+            </div>
             <div className="p-2">
               <p className="line-clamp-2 text-xs text-muted-foreground">
                 {item.prompt}
@@ -129,6 +138,7 @@ export function HistoryList() {
                 <p><strong>增强提示词：</strong>{selected.enhancedPrompt}</p>
               )}
               <p><strong>尺寸：</strong>{selected.width}×{selected.height}</p>
+              <p><strong>模型：</strong>{MODELS[selected.model]?.label || selected.model}</p>
               <p><strong>增强：</strong>{selected.enhancement ? "是" : "否"}</p>
               <p><strong>时间：</strong>{selected.createdAt}</p>
             </div>

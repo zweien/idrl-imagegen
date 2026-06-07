@@ -6,6 +6,7 @@ export interface ComfyUIHistoryOutput {
     subfolder: string;
     type: string;
   }>;
+  text?: string[] | string;
 }
 
 export interface ComfyUIHistoryItem {

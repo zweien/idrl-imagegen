@@ -15,6 +15,7 @@ export async function GET(request: NextRequest) {
       width: t.width,
       height: t.height,
       enhancement: !!t.enhancement,
+      model: t.model,
       status: t.status,
       imageUrl:
         t.status === "completed" && t.image_path

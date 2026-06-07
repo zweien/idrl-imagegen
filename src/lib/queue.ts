@@ -8,6 +8,7 @@ export interface ImageJobData {
   width: number;
   height: number;
   enhancement: boolean;
+  model: string;
 }
 
 function parseRedisUrl(url: string) {
