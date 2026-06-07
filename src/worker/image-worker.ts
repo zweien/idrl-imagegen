@@ -73,10 +73,10 @@ function extractEnhancedPrompt(
 ): string | null {
   if (!enhancement) return null;
   const previewOutput = outputs["103"];
-  if (previewOutput?.STRING) {
-    return Array.isArray(previewOutput.STRING)
-      ? previewOutput.STRING[0]
-      : String(previewOutput.STRING);
+  if (previewOutput?.text) {
+    return Array.isArray(previewOutput.text)
+      ? previewOutput.text[0]
+      : String(previewOutput.text);
   }
   return null;
 }

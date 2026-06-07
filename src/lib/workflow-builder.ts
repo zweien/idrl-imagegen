@@ -109,7 +109,7 @@ export function buildWorkflow(params: GenerateParams): Record<string, unknown> {
         "sampling_mode.top_p": 0.8,
         "sampling_mode.min_p": 0.05,
         "sampling_mode.repetition_penalty": 1.05,
-        "sampling_mode.seed": 0,
+        "sampling_mode.seed": randomInt(1, 281474976710655),
       },
     };
     workflow["103"] = {
