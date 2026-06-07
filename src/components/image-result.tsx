@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 
 export function ImageResult({ imageUrl }: { imageUrl: string }) {
   const [loaded, setLoaded] = useState(false);
@@ -22,11 +21,13 @@ export function ImageResult({ imageUrl }: { imageUrl: string }) {
         />
       </div>
       <div className="flex gap-2">
-        <Button variant="outline" size="sm" asChild>
-          <a href={imageUrl} download>
-            下载图片
-          </a>
-        </Button>
+        <a
+          href={imageUrl}
+          download
+          className="inline-flex h-7 items-center justify-center gap-1 rounded-lg border border-border bg-background px-2.5 text-[0.8rem] font-medium hover:bg-muted"
+        >
+          下载图片
+        </a>
       </div>
     </div>
   );
