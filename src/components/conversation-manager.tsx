@@ -45,9 +45,9 @@ export function ConversationManager() {
   }, []);
 
   const handleMessagesChange = useCallback(
-    async (conversationId: string, messages: Array<{ id: string; role: string; [key: string]: unknown }>) => {
+    async (conversationId: string, messages: Array<Record<string, unknown>>) => {
       if (messages.length === 0) return;
-      await storeSaveMessages(conversationId, messages);
+      await storeSaveMessages(conversationId, messages as any);
       setVersion((v) => v + 1);
     },
     []
@@ -93,7 +93,7 @@ export function ConversationManager() {
             <GenerationConversation
               key={activeId}
               conversationId={activeId}
-              onMessagesChange={(msgs) => handleMessagesChange(activeId, msgs)}
+              onMessagesChange={(msgs) => handleMessagesChange(activeId, msgs as any)}
               onFirstMessage={(text) => handleFirstMessage(activeId, text)}
             />
           )}
