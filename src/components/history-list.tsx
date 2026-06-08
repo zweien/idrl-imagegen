@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { MODELS } from "@/lib/types";
+import { ImagePreview } from "@/components/image-preview";
 
 interface HistoryItem {
   id: string;
@@ -126,7 +127,7 @@ export function HistoryList() {
             onClick={(e) => e.stopPropagation()}
           >
             {selected.imageUrl && (
-              <img
+              <ImagePreview
                 src={selected.imageUrl}
                 alt={selected.prompt}
                 className="w-full rounded"

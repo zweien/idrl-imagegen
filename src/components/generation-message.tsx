@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Spinner } from "@/components/ui/spinner";
+import { ImagePreview } from "@/components/image-preview";
 
 interface ImageGenerationProps {
   taskId: string;
@@ -54,12 +55,16 @@ export function ImageGeneration({ taskId }: ImageGenerationProps) {
               <Spinner />
             </div>
           )}
-          <img
-            src={imageUrl}
-            alt="Generated image"
-            className={`w-full ${imageLoaded ? "block" : "hidden"}`}
-            onLoad={() => setImageLoaded(true)}
-          />
+          {imageLoaded ? (
+            <ImagePreview src={imageUrl} alt="Generated image" />
+          ) : (
+            <img
+              src={imageUrl}
+              alt="Generated image"
+              className="hidden"
+              onLoad={() => setImageLoaded(true)}
+            />
+          )}
         </div>
         {enhancedPrompt && (
           <div className="rounded-lg border p-3">
