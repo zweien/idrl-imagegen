@@ -43,6 +43,15 @@ export const MODELS: Record<string, ModelConfig> = {
     enhanceOutputNodeId: "103",
     dimensionAlignment: 16,
   },
+  "ernie": {
+    id: "ernie",
+    label: "ERNIE Image",
+    description: "50步高质量出图",
+    supportsEnhancement: true,
+    outputNodeId: "73",
+    enhanceOutputNodeId: "103",
+    dimensionAlignment: 16,
+  },
   hidream: {
     id: "hidream",
     label: "HiDream O1",

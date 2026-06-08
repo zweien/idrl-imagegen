@@ -151,6 +151,8 @@ export function buildWorkflowForModel(
   };
 
   switch (model) {
+    case "ernie":
+      return { workflow: buildErnieWorkflow(aligned), outputNodeId: "73" };
     case "hidream":
       return { workflow: buildHiDreamWorkflow(aligned), outputNodeId: "9" };
     case "flux-schnell":
@@ -160,6 +162,128 @@ export function buildWorkflowForModel(
     default:
       return { workflow: buildWorkflow(aligned), outputNodeId: "73" };
   }
+}
+
+function buildErnieWorkflow(params: GenerateParams): Record<string, unknown> {
+  const seed = params.seed ?? randomInt(1, 281474976710655);
+
+  const workflow: Record<string, unknown> = {
+    "66": {
+      class_type: "UNETLoader",
+      inputs: {
+        unet_name: "ernie-image.safetensors",
+        weight_dtype: "default",
+      },
+    },
+    "62": {
+      class_type: "CLIPLoader",
+      inputs: {
+        clip_name: "ministral-3-3b.safetensors",
+        type: "flux2",
+        device: "default",
+      },
+    },
+    "63": {
+      class_type: "VAELoader",
+      inputs: {
+        vae_name: "flux2-vae.safetensors",
+      },
+    },
+    "71": {
+      class_type: "EmptyFlux2LatentImage",
+      inputs: {
+        width: params.width,
+        height: params.height,
+        batch_size: 1,
+      },
+    },
+    "72": {
+      class_type: "CLIPTextEncode",
+      inputs: {
+        text: "",
+        clip: ["62", 0],
+      },
+    },
+    "70": {
+      class_type: "KSampler",
+      inputs: {
+        seed,
+        steps: 50,
+        cfg: 4,
+        sampler_name: "euler",
+        scheduler: "simple",
+        denoise: 1,
+        model: ["66", 0],
+        positive: ["67", 0],
+        negative: ["72", 0],
+        latent_image: ["71", 0],
+      },
+    },
+    "65": {
+      class_type: "VAEDecode",
+      inputs: {
+        samples: ["70", 0],
+        vae: ["63", 0],
+      },
+    },
+    "73": {
+      class_type: "SaveImage",
+      inputs: {
+        images: ["65", 0],
+        filename_prefix: "Ernie-Image",
+      },
+    },
+  };
+
+  if (params.enhancement) {
+    const pePrompt = buildPePrompt(params);
+    workflow["91"] = {
+      class_type: "CLIPLoader",
+      inputs: {
+        clip_name: "ernie-image-prompt-enhancer.safetensors",
+        type: "flux2",
+        device: "default",
+      },
+    };
+    workflow["95"] = {
+      class_type: "TextGenerate",
+      inputs: {
+        clip: ["91", 0],
+        prompt: pePrompt,
+        max_length: 2048,
+        sampling_mode: "on",
+        "sampling_mode.temperature": 0.6,
+        "sampling_mode.top_k": 64,
+        "sampling_mode.top_p": 0.8,
+        "sampling_mode.min_p": 0.05,
+        "sampling_mode.repetition_penalty": 1.05,
+        "sampling_mode.seed": randomInt(1, 281474976710655),
+      },
+    };
+    workflow["103"] = {
+      class_type: "PreviewAny",
+      inputs: {
+        source: ["95", 0],
+      },
+    };
+    workflow["67"] = {
+      class_type: "CLIPTextEncode",
+      inputs: {
+        text: ["95", 0],
+        clip: ["62", 0],
+      },
+    };
+  } else {
+    workflow["67"] = {
+      class_type: "CLIPTextEncode",
+      inputs: {
+        text: params.prompt,
+        clip: ["62", 0],
+      },
+    };
+  }
+
+  return workflow;
 }
 
 function buildHiDreamWorkflow(params: GenerateParams): Record<string, unknown> {
